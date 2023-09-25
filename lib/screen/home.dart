@@ -2,16 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:proyek_akhir/reusable/drawer.dart';
 import 'package:proyek_akhir/reusable/search.dart';
+import 'package:proyek_akhir/screen/menu/utama.dart';
 import 'package:proyek_akhir/screen/view/recomendation.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class HomeView extends StatelessWidget {
+  HomeView({super.key});
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +86,34 @@ class _HomeViewState extends State<HomeView> {
               itemBuilder: (BuildContext context, int index) {
                 final data = menu[index];
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if (data['menu'] == "utama") {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UtamaView(),
+                          ));
+                    }
+                    //  else if (data['menu'] == "petunjuk") {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => PetunjukView(),
+                    //       ));
+                    // } else if (data['menu'] == "barcode") {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => BarcodeView(),
+                    //       ));
+                    // } else if (data['menu'] == "repair") {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => RepairView(),
+                    //       ));
+                    // }
+                  },
                   child: Container(
                     width: 100,
                     height: 100,
@@ -242,6 +265,7 @@ class _HomeViewState extends State<HomeView> {
     {"menu": "Coming", "title": "Coming", "icon": Icons.watch_later_outlined},
     {"menu": "Coming", "title": "Coming", "icon": Icons.watch_later_outlined},
   ];
+
   List<Map<String, dynamic>> recomendation = [
     {
       "title": "Penyebab Dari penggunaan oli yang tak kunjung di ganti",

@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   String? name;
   String? email;
   ProfilePage({this.email, this.name});
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Text(
-                          widget.name!,
+                          name!,
                           style: TextStyle(
                             fontSize: 16.0,
                             color: Colors.black,
